@@ -2,6 +2,22 @@
 
 Code for the paper ["MLE-Bench: Evaluating Machine Learning Agents on Machine Learning Engineering"](https://arxiv.org/abs/2410.07095). We have released the code used to construct the dataset, the evaluation logic, as well as the agents we evaluated for this benchmark.
 
+## Results
+
+The table below shows the scores from the paper of models on MLE-Bench Lite and MLE-Bench, on the headline metric of 'percentage of submissions where the model achieved any medal'.
+
+| Model                      | MLE-Bench Lite (%) | MLE-Bench (%) |
+| -------------------------- | -----------------: | ------------: |
+| **AIDE**                   |                    |               |
+| o1-preview                 |         34.3 ± 2.4 |    16.9 ± 1.1 |
+| gpt-4o-2024-08-06          |         19.0 ± 1.3 |     8.6 ± 0.5 |
+| llama-3.1-405b-instruct    |          8.3 ± 2.6 |     3.1 ± 0.9 |
+| claude-3-5-sonnet-20240620 |         19.4 ± 4.9 |     7.5 ± 1.8 |
+| **MLAB**                   |                    |               |
+| gpt-4o-2024-08-06          |          4.2 ± 1.5 |     1.3 ± 0.5 |
+| **OpenHands**              |                    |               |
+| gpt-4o-2024-08-06          |         11.5 ± 3.4 |     5.1 ± 1.3 |
+
 ## Setup
 
 Some MLE-bench competition data is stored using [Git-LFS](https://git-lfs.com/).
@@ -54,6 +70,42 @@ mlebench prepare -c <competition-id>
 ```
 
 Run `mlebench prepare --help` to see the list of available competitions.
+
+### MLE-bench Lite
+
+We also provide a lite version of the MLE-bench dataset, which contains all the 22 competitions from the Low complexity category. To prepare the lite dataset, run:
+
+```console
+mlebench prepare --lite
+```
+
+The Lite dataset contains the following competitions:
+
+|Competition ID|Category                                       |Dataset Size (GB)     |
+|--------------|-----------------------------------------------|--------------------|
+|aerial-cactus-identification|Image Classification                           |0.0254              |
+|aptos2019-blindness-detection|Image Classification                           |10.22               |
+|denoising-dirty-documents|Image To Image                                 |0.06                |
+|detecting-insults-in-social-commentary|Text Classification                            |0.002               |
+|dog-breed-identification|Image Classification                           |0.75                |
+|dogs-vs-cats-redux-kernels-edition|Image Classification                           |0.85                |
+|histopathologic-cancer-detection|Image Regression                               |7.76                |
+|jigsaw-toxic-comment-classification-challenge|Text Classification                            |0.06                |
+|leaf-classification|Image Classification                           |0.036               |
+|mlsp-2013-birds|Audio Classification                           |0.5851              |
+|new-york-city-taxi-fare-prediction|Tabular                                        |5.7                 |
+|nomad2018-predict-transparent-conductors|Tabular                                        |0.00624             |
+|plant-pathology-2020-fgvc7|Image Classification                           |0.8                 |
+|random-acts-of-pizza|Text Classification                            |0.003               |
+|ranzcr-clip-catheter-line-classification|Image Classification                           |13.13               |
+|siim-isic-melanoma-classification|Image Classification                           |116.16              |
+|spooky-author-identification|Text Classification                            |0.0019              |
+|tabular-playground-series-dec-2021|Tabular                                        |0.7                 |
+|tabular-playground-series-may-2022|Tabular                                        |0.57                |
+|text-normalization-challenge-english-language|Seq->Seq                                       |0.01                |
+|text-normalization-challenge-russian-language|Seq->Seq                                       |0.01                |
+|the-icml-2013-whale-challenge-right-whale-redux|Audio Classification                           |0.29314             |
+
 
 ## Grading Submissions
 
